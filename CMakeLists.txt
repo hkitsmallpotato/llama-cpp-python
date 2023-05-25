@@ -9,7 +9,7 @@ set(FORCE_CMAKE $ENV{FORCE_CMAKE})
 if (UNIX AND NOT FORCE_CMAKE)
     add_custom_command(
         OUTPUT ${CMAKE_CURRENT_SOURCE_DIR}/vendor/llama.cpp/libllama.so
-        COMMAND make libllama.so
+        COMMAND make libllama.so LLAMA_CUBLAS=1
         WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/vendor/llama.cpp
     )
     add_custom_target(
